@@ -91,7 +91,11 @@ app.use(function (req, res, next) {
     next()
 })
 
-app.use(cors())
+app.use(
+    cors({
+        origin: '*',
+    })
+)
 
 app.use(express.static(path.join(__dirname, '../dist-frontend')))
 
