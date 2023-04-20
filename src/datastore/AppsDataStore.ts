@@ -17,9 +17,11 @@ function isNameAllowed(name: string) {
     const isNameFormattingOk =
         !!name &&
         name.length < 50 &&
-        /^[a-z]/.test(name) &&
-        /[a-z0-9]$/.test(name) &&
-        /^[a-z0-9\-]+$/.test(name) &&
+       (/^[a-z]/.test(name) ||
+        /[a-z0-9]$/.test(name) ||
+        /^[a-z0-9\-]+$/.test(name)||
+         /^[0-9\-]+$/.test(name)
+        ) &&
         name.indexOf('--') < 0
     return isNameFormattingOk && ['captain', 'registry'].indexOf(name) < 0
 }
